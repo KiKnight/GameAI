@@ -11,7 +11,7 @@ def clearTestLog():
     else:
         print 'no such file!'
 
-def writeLog(AI_Name,AI_Feed,AI_Intention):
+def writeLog0(AI_Name,AI_Feed,AI_Intention):
     with open('myTest.log','a') as myfile:
         myfile.write(str(time.time())+ '\n')
         myfile.write('Name'.ljust(10) + '|' + 'Feed'.ljust(10) + '|' + 'Intention'.ljust(10) + '\n')

@@ -14,17 +14,46 @@
 
 
 from numpy import *
+import random
+import randgen
 
 def AICreate():
+    '''生成AI初始属性：姓名，饥饱度，想法'''
     #AIcnt = random.randint(1,100)
-    AIcnt = 5
-    AI_Name, AI_Feed, AI_Intention = {},{},{}
+    AIcnt = 20
+    AI = {}
+    Name, Feed, Intention = {},{},{}
     for i in range(AIcnt):
         key = 'AI' + str(i).zfill(3)
-        AI_Name[key]       = key
-        AI_Feed[key]       = random.randint(50,100)
-        AI_Intention[key]  = random.choice(['睡觉','走路','交谈','吃饭','学习','玩'])
-    return AI_Name,AI_Feed,AI_Intention
+        Name[key]       = key
+        Feed[key]       = random.randint(50,100)
+        Intention[key]  = random.choice(['睡觉','走路','交谈','吃饭','学习','玩'])
+    AI['Name'] = Name
+    AI['Feed'] = Feed
+    AI['Intention'] = Intention
+    return AI
+
+def MapCreat():
+    '''生成地图初始属性：地名，大小，稀有度'''
+    Mapcnt = 20
+    Map = {}
+    Name, Scale, Rare, Build, Belong = {},{},{},{},{}
+    for i in range(Mapcnt):
+        key = 'MAP' + str(i).zfill(3)
+        #Name[key]     = key
+        Scale[key]    = int(abs(random.normalvariate(0,1))*10)
+        Scale[key] = randgen.DataRestric(Scale[key])
+        Rare[key] = int(abs(random.normalvariate(0,1))*10)
+        Rare[key] = randgen.DataRestric(Rare[key])
+        Build[key]    = 0
+        Belong[key]   = 0
+    #Map['Name'] = Name
+    Map['Feed'] = Scale
+    Map['Intention'] = Rare
+    for key in Map:
+        print Map[key]
+    #return Map
+
 
 
 

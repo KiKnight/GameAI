@@ -4,21 +4,22 @@ import os, sys, time ,random
 from numpy import *
 import start, events, mysys
 
-AI_Name,AI_Feed,AI_Intention = start.AICreate()
+AI = start.AICreate()
+Map = start.MapCreat()
 
 mysys.clearTestLog()#清除测试log，保证观测
 
-mysys.writeLog(AI_Name,AI_Feed,AI_Intention)
+mysys.writeLog0(AI['Name'],AI['Feed'],AI['Intention'])
 
-while(len(AI_Name)>0):
+while(len(AI['Name'])>0):
 
     #time.sleep(1)
 
-    deadAIkey = events.FeedUpdate(AI_Feed,AI_Intention)
+    deadAIkey = events.FeedUpdate(AI['Feed'],AI['Intention'])
 
-    events.removeDeadAI(AI_Name,AI_Feed,AI_Intention,deadAIkey)
+    events.removeDeadAI(AI['Name'],AI['Feed'],AI['Intention'],deadAIkey)
 
-    mysys.writeLog(AI_Name,AI_Feed,AI_Intention)
+    mysys.writeLog0(AI['Name'],AI['Feed'],AI['Intention'])
 
 
 

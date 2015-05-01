@@ -9,7 +9,7 @@ def FeedUpdate(AI_Feed,AI_Intention):
         AI_Feed[key] -= 10
         if AI_Feed[key] < 50:
             if AI_Feed[key] > 0:
-                AI_Intention[key] = '吃'
+                AI_Intention[key] = '吃饭'
             else:
                 AI_Feed[key] = 0
                 deadAIkey.append(key)
