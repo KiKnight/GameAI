@@ -1,6 +1,8 @@
 #coding:utf-8
 
 import os, sys, time ,random
+reload(sys)
+sys.setdefaultencoding("utf-8")
 from numpy import *
 import start, events, mysys
 
