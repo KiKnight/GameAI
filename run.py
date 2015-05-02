@@ -6,14 +6,19 @@ sys.setdefaultencoding("utf-8")
 from numpy import *
 import start, events, mysys
 
-AI = start.AICreate()
 Map = start.MapCreat()
+AI = start.AICreate()
+
 
 mysys.clearTestLog()#清除测试log，保证观测
 
 mysys.writeLog0(AI['Name'],AI['Feed'],AI['Intention'])
 
-while(len(AI['Name'])>0):
+testcnt = 10
+#while(len(AI['Name'])>0):
+while(testcnt>0):
+
+    testcnt -= 1
 
     #time.sleep(1)
 

@@ -8,6 +8,7 @@ import random
 
 
 def DataRestric(data):
+    '''随机正态分布地图尺寸和稀有度'''
     if data == 0:
         data = 1
     elif data > 20:
@@ -15,3 +16,8 @@ def DataRestric(data):
     else:
         pass
     return data
+
+# def randpick(type,List):
+#     '''按Type类型随机出List中的某个数值'''
+#     if type == 1:#随机出地形
+
