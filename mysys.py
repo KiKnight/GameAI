@@ -46,18 +46,18 @@ def grabName():
 
     #获取姓氏
     NameLib['Fname']['P'] = []
-    for i in range(0,len(lines[0]),2):#读取常用姓氏
+    for i in range(0,len(lines[0])-2,2):#读取常用姓氏
         word= lines[0][i:i+2].decode('gbk', 'utf-8')
         NameLib['Fname']['P'].extend(word)
 
     NameLib['Fname']['D'] = []
-    for i in range(0,len(lines[1]),4):#读取复姓
+    for i in range(0,len(lines[1])-4,4):#读取复姓
         word= lines[1][i:i+4].decode('gbk', 'utf-8')
         NameLib['Fname']['D'].extend(word)
 
     NameLib['Fname']['R'] = []
     temp = []
-    for i in range(0,len(lines[2]),2):#读取生僻姓氏
+    for i in range(0,len(lines[2])-2,2):#读取生僻姓氏
         word= lines[1][i:i+2].decode('gbk', 'utf-8')
         temp.extend(word)
     for word in temp:

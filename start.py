@@ -44,9 +44,10 @@ def MapCreat():
 def AICreate():
     '''生成AI初始属性：姓名，饥饱度，想法'''
     #AIcnt = random.randint(1,100)
-    AIcnt = 2
+    AIcnt = 1000
     AI = {}
-    Sex, Name, Feed, Intention = {},{},{},{}
+    Sex, Name, Feed, Intention,test = {},{},{},{},{}
+
 
     nameLib = open('NameLib/name.pkl','rb')
     NameLib = pickle.load(nameLib)
@@ -58,11 +59,7 @@ def AICreate():
         #初始随机性别
         Sex[key] = random.choice(['男','女'])
 
-
         #姓氏
-        # nameLib = open('NameLib/name.pkl','rb')
-        # NameLib = pickle.load(nameLib)
-        # nameLib.close()
         nameRare = random.randint(1,10)
         if nameRare > 9:
             Fname = random.choice(NameLib['Fname']['R'])#生僻姓氏,占1成
@@ -71,24 +68,23 @@ def AICreate():
             Fname = NameLib['Fname']['D'][j*2] + NameLib['Fname']['D'][j*2+1]#复姓氏,占2成
         else:
             Fname = random.choice(NameLib['Fname']['P'])#常用姓氏，占7成
-        #
         #名字
         if Sex[key]=='男':#按性别挑选名字
             Sname = random.choice(NameLib['Sname']['M'])
         else:
             Sname = random.choice(NameLib['Sname']['F'])
 
-        Name[key] =  Sname
-        NameLib = None#释放变量内存
-
-        Feed[key]       = random.randint(50,100)
-        Intention[key]  = random.choice(['睡觉','走路','交谈','吃饭','学习','玩耍'])
+        Name[key] = Fname + Sname
+        test[key] = key
+        Feed[key] = random.randint(50,100)
+        Intention[key] = random.choice(['睡觉','走路','交谈','吃饭','学习','玩耍'])
     AI['Name'] = Name
     AI['Sex'] = Sex
     AI['Feed'] = Feed
     AI['Intention'] = Intention
+    AI['test'] = test
     for key in AI['Name']:
-        print '\t'+AI['Name'][key].ljust(10)+'\t'+ AI['Sex'][key]+'\t'+ str(AI['Feed'][key]) +'\t'+ AI['Intention'][key]
+        print '\t'+AI['Name'][key].ljust(10)+'\t'+ AI['test'][key]+'\t'+ AI['Sex'][key]+'\t'+ str(AI['Feed'][key]) +'\t'+ AI['Intention'][key]
     return AI
 
 
