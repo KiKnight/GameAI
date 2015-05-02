@@ -6,8 +6,12 @@ sys.setdefaultencoding("utf-8")
 from numpy import *
 import start, events, mysys
 
-Map = start.MapCreat()
+
+Map = start.MapCreate()
+
+
 AI = start.AICreate()
+AI2 = start.SubGen(Map,AI)
 
 
 mysys.clearTestLog()#清除测试log，保证观测
